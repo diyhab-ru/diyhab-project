@@ -208,7 +208,7 @@
 <body>
 
   <div class="container">
-    D.I.Y.H.A.B
+    D.I.Y.H.A.b
     <!-- <img src="diyhab-logo-crop.webp" alt="D.I.Y.H.A.B Logo" style="width: 100%; max-width: 900px; height: auto;"> -->
     <span>
       настраивается
