@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
     <script src="app.js" defer></script>
@@ -13,16 +18,32 @@
 
     <section class="hero">
         <div class="stars-container" id="stars"></div>
+        <div class="hero-justify">
+            <div class="hero-justify--left">D.I.Y</div>
+            <div class="hero-justify--right">H.A.B</div>
+        </div>
         <div class="hero-container">
             <div class="hero-center">
                 <img src="hero-center.svg" alt="Hero Center">
             </div>
-            <div class="hero-orbit">
+            <!-- Орбита 1: Текущие проекты (Ближняя) -->
+            <div class="hero-orbit orbit-main-1">
                 <div class="orbit-item">
-                    <a href="#" style="--glow-color: #00d9ff;">Веб-разработка</a>
+                    <a href="#" style="--glow-color: #00d9ff;">Создание сайта под ключ</a>
                 </div>
                 <div class="orbit-item">
-                    <a href="#" style="--glow-color: #ff57b2;">VPN</a>
+                    <a href="#" style="--glow-color: #1900ff;">WordPress</a>
+                </div>
+                <div class="orbit-item">
+                    <a href="#" style="--glow-color: #00ffaa;">ModX</a>
+                </div>
+                <div class="planet p-inner-1"></div>
+            </div>
+
+            <!-- Орбита 2: Скоро откроются (Средняя) -->
+            <div class="hero-orbit orbit-main-2">
+                <div class="orbit-item">
+                    <a href="#" style="--glow-color: #ff57b2;">VPN<br/>VDS</a>
                 </div>
                 <div class="orbit-item">
                     <a href="#" style="--glow-color: #6e57ff;">Ботостроение</a>
@@ -30,27 +51,35 @@
                 <div class="orbit-item">
                     <a href="#" style="--glow-color: #57ffdc;">Mini App's</a>
                 </div>
+                <div class="planet p-inner-2"></div>
+            </div>
+
+            <!-- Орбита 3: Будущие проекты (Дальняя) -->
+            <div class="hero-orbit orbit-main-3">
                 <div class="orbit-item">
                     <a href="#" style="--glow-color: #ff9e57;">UI/UX Design</a>
                 </div>
                 <div class="orbit-item">
                     <a href="#" style="--glow-color: #5788ff;">SEO</a>
                 </div>
-            </div>           <!-- Дополнительные декоративные орбиты -->
-            <div class="decor-orbit orbit-1">
+                <div class="orbit-item">
+                    <a href="#" style="--glow-color: #2b2b2b;">Блог</a>
+                </div>
+                <div class="orbit-item">
+                    <a href="#" style="--glow-color: #ffee57;">Я.Метрика</a>
+                </div>
+                <div class="planet p-inner-3"></div>
+            </div>
+
+            <!-- Декоративные орбиты -->
+            <div class="decor-orbit orbit-decor-1">
                 <div class="planet p-1"></div>
                 <div class="planet p-1-2"></div>
             </div>
-            <div class="decor-orbit orbit-2">
+            <div class="decor-orbit orbit-decor-2">
                 <div class="planet p-2"></div>
                 <div class="planet p-2-2"></div>
-            </div>
-            <div class="decor-orbit orbit-3">
-                <div class="planet p-3"></div>
-                <div class="planet p-3-2"></div>
-                <div class="planet p-3-3"></div>
-            </div>
-        </div>
+            </div>        </div>
     </section>
     <!-- <footer class="footer">FOOTER</footer> -->
 
