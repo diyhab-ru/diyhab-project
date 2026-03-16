@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #121117;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #121117;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, 
+        rgba(0, 162, 255, 0.15) 0%, 
+        rgba(0, 89, 255, 0.08) 35%,
+        rgba(18, 17, 23, 0) 75%
+    );
+    z-index: 0;
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle at center, 
+        rgba(0, 217, 255, 0.06) 0%, 
+        rgba(0, 110, 255, 0.03) 45%,
+        rgba(18, 17, 23, 0) 85%
+    );
+    top: -30%;
+    left: -30%;
+    z-index: 0;
+    filter: blur(120px);
+    animation: pulseGlow 18s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle at center, 
+        rgba(0, 217, 255, 0.06) 0%, 
+        rgba(0, 110, 255, 0.03) 45%,
+        rgba(18, 17, 23, 0) 85%
+    );
+    top: -30%;
+    left: -30%;
+    z-index: 0;
+    filter: blur(120px);
+    animation: pulseGlow 18s ease-in-out infinite alternate;
+}@keyframes pulseGlow {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.2); opacity: 0.8; }
+}
+
+.stars-container {    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: twinkle var(--duration) ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.hero-container {    
+    position: relative;
+    width: 700px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-center {
+    position: absolute;
+    z-index: 10;
+    width: 450px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-center img {
+    max-width: 100%;
+    height: auto;
+}
+
+.hero-orbit {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: rotateOrbit 40s linear infinite;
+}
+
+.hero-orbit:hover {
+    animation-play-state: paused;
+}
+
+.orbit-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-satellite {
+    display: none;
+}
+
+.orbit-item a {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    padding: 10px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glow-color, rgba(255, 255, 255, 0.1));
+    border-radius: 30px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px var(--glow-color, transparent);
+    /* Компенсация вращения орбиты */
+    animation: counterRotate 40s linear infinite;
+}
+
+.hero-orbit:hover,
+.hero-orbit:hover .orbit-item a {
+    animation-play-state: paused;
+}
+
+.orbit-item a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px var(--glow-color, rgba(255, 255, 255, 0.3));
+}/* Падающие звезды */
+.shooting-star {
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, #fff, transparent);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes shoot {
+    0% {
+        transform: translate(0, 0) rotate(var(--angle)) translateX(0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 0) rotate(var(--angle)) translateX(600px);
+        opacity: 0;
+    }
+}
+@keyframes rotateOrbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes counterRotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+/* Декоративные орбиты и планеты */
+.decor-orbit {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    pointer-events: none; /* Чтобы не мешали кликать по ссылкам */
+}
+
+.orbit-1 {
+    width: 850px;
+    height: 850px;
+    animation: rotateOrbit 60s linear infinite reverse;
+}
+
+.orbit-2 {
+    width: 1100px;
+    height: 1100px;
+    animation: rotateOrbit 90s linear infinite;
+}
+
+.orbit-3 {
+    width: 1400px;
+    height: 1400px;
+    animation: rotateOrbit 120s linear infinite reverse;
+}
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.p-1 {
+    width: 8px;
+    height: 8px;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    background: #6e57ff;
+    box-shadow: 0 0 10px #6e57ff;
+}
+
+.p-1-2 {
+    width: 4px;
+    height: 4px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    box-shadow: 0 0 8px #fff;
+}
+
+.p-2 {
+    width: 12px;
+    height: 12px;
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+    background: #ff57b2;
+    box-shadow: 0 0 12px #ff57b2;
+}
+
+.p-2-2 {
+    width: 6px;
+    height: 6px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background: #ff9e57;
+    box-shadow: 0 0 10px #ff9e57;
+}
+
+.p-3 {
+    width: 6px;
+    height: 6px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background: #57ffdc;
+    box-shadow: 0 0 8px #57ffdc;
+}
+
+.p-3-2 {
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    background: #5788ff;
+    box-shadow: 0 0 12px #5788ff;
+}
+
+.p-3-3 {
+    width: 4px;
+    height: 4px;
+    top: 15%;
+    right: 15%;
+    transform: translate(50%, -50%);
+    background: #fff;
+    box-shadow: 0 0 6px #fff;
+}
